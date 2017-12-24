@@ -40,7 +40,7 @@ class SpellingBee(object):
     def __init__(self, allow_hyphen=False, allow_joint=False,
                  min_puzzle_words=None,
                  min_whole_puzzle_words=None):
-        f = open('dictionaries/google_popular_game_words.json', 'r')
+        f = open('dictionaries/google_popular_TWL06.json', 'r')
         webster_dictionary = json.load(f)
 
         # Extract just the words in alphabetical order from Webster's dictionary (from
