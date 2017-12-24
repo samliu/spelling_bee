@@ -1,8 +1,14 @@
-"""spelling_bee.py: Creates puzzles for NYT's spelling bee game.
+"""spelling_bee.py: Creates random puzzles for NYT's spelling bee game.
 
 Computers are fast. This leverages a ton of linear passes through a dictionary
 because it's just for fun and puzzle examples still come back in under a second.
 Performance improvements left as exercise to the reader.
+
+Most other implementations I've seen precompute a lot of puzzles, and if you
+were running a real game server you'd probably want to do the same (serve a
+puzzle at random). I didn't want the inconvenience of precomputing things and
+just wanted something that worked even if generating a puzzle takes a while. So
+that is what this is.
 
 No dependencies beyond Python 2.7+.
 

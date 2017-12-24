@@ -6,3 +6,15 @@
  *  * A valid puzzle must have at least 1 word that uses all the letters.
  *  * A valid puzzle has 7 letters (1 main + 6 non-main).
  * */
+
+var puzzle = {
+  "['a', 'c', 'e', 'r', 'u', 't', 'y']" :
+      ('y',
+       [
+         'curacy', 'tracery', 'actuary', 'treaty', 'accuracy', 'eatery',
+         'cattery', 'artery'
+       ],
+       [ 'cautery' ])
+}
+
+
