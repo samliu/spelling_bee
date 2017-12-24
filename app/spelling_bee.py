@@ -32,6 +32,8 @@ import os
 import sys
 import random
 
+MIN_WORD_LENGTH = 5
+
 
 class SpellingBee(object):
 
@@ -102,10 +104,16 @@ class SpellingBee(object):
             whole_puzzle_words = []
             puzzle_words = []
 
+            # O(n) iteration through word list. TODO: improve by building an
+            # index that can be queried more efficiently.
+            # Query params:
+            #   1. If the word uses the central letter.
+            #   2. If the word's letters are a subset of the current letter set.
+            #   3. If the length of the word is at least <5>.
             for word in self.word_lookup:
                 if self.word_lookup[word] == letters:
                     whole_puzzle_words.append(word)
-                elif self.word_lookup[word].issubset(letters) and len(word) > 5 and len(list(self.word_lookup[word].intersection(central_letter))) == 1:
+                elif self.word_lookup[word].issubset(letters) and len(word) > MIN_WORD_LENGTH and len(list(self.word_lookup[word].intersection(central_letter))) == 1:
                     puzzle_words.append(word)
             if len(whole_puzzle_words) > 0:
                 puzzle = {str(list(letters)): (central_letter,
