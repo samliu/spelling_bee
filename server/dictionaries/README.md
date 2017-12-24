@@ -19,4 +19,8 @@ Here we have several options for dictionaries:
 6. `google_300k.json` contains the top 300k unigrams from google search circa
    2010. It contains a lot of nonsense words and stuff (example: `wwwcumshots`).
 7. `game_words.json` contains a union of enable1, sowpods, twl06, and yawl.
-8. `google_popular_game_words.json` contains an intersection of `game_words.json` and `google_300k.json`.
+8. `google_popular_game_words.json` contains an intersection of
+   `game_words.json` and `google_300k.json`.
+9. `google_popular_TWL06.json` contains an intersection of `game_words.json` and
+   `TWL06.json`. I've found this one to have the best results in terms of puzzle
+   generation.
