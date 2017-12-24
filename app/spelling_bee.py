@@ -73,12 +73,19 @@ class SpellingBee(object):
     def _lookup(self, query):
         return filter(lambda x: query.lower() in x, self.word_lookup)
 
-    def _get_random_letters(self):
+    def _count_vowels(self, s):
+        return s.count('a') + s.count('e') + s.count('i') + s.count('o') + s.count('u')
+
+    def _get_random_letters(self, num_letters=7):
+        """Retrieve `num_letters` random letters from the alphabet forcing at
+        least 1 vowel. """
         letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
                    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
                    'y', 'z']
-        random.shuffle(letters)
-        return set(letters[0:7])
+        while True:
+            random.shuffle(letters)
+            if self._count_vowels(letters[0:num_letters]) > 0:
+                return set(letters[0:num_letters])
 
     def generate_puzzle(self):
         """Returns a dictionary representing the spelling bee puzzle.
@@ -106,6 +113,7 @@ class SpellingBee(object):
 
             # O(n) iteration through word list. TODO: improve by building an
             # index that can be queried more efficiently.
+            #
             # Query params:
             #   1. If the word uses the central letter.
             #   2. If the word's letters are a subset of the current letter set.
