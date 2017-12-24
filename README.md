@@ -1,4 +1,4 @@
 # Spelling Bee
 
-A javascript implementation of NYT's Spelling Bee.
+A multi-player implementation of NYT's Spelling Bee.
 
