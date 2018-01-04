@@ -28,12 +28,14 @@ Expects input as a json file containing values in this format:
 Definitions are currently unused.
 
 Proper nouns are not filtered out as of now but we give the option to ignore
-space-separated and hyphenated words.
+space-separated and hyphenated words, which are common in certain dictionaries
+(e.g gutenberg webster). Most word game word lists don't include proper nouns
+which is why adding filtering here doesn't make that much sense.
 
-The use case for this module is for generating puzzles used in head-to-head
-competitions. So even though the gutenberg dictionary contains a lot of weird
-words it should be OK as nobody today will think of those words. Ideally the
-head-to-head matchup is timed, so as to not keep everyone thinking forever.
+The theoretical use case for this module is for generating puzzles used in head-to-head
+competitions (with a timeout). So even though the gutenberg dictionary contains a lot of weird
+words it would be OK as nobody today will think of those words. Unfortunately that
+dictionary will miss most modern words, so we include some more modern sources of words now.
 """
 import json
 import os
