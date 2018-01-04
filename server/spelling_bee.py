@@ -20,8 +20,8 @@ License: MIT
 Expects input as a json file containing values in this format:
 
 {
- "word": "definition",
- "word2": "definition2"
+ "word": "definition or other metadata",
+ "word2": "definition2 or other metadata"
  ...etc
 }
 
