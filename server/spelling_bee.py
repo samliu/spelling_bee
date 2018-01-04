@@ -1,8 +1,10 @@
 """spelling_bee.py: Creates random puzzles for NYT's spelling bee game.
 
 Computers are fast. This leverages a ton of linear passes through a dictionary
-because it's just for fun and puzzle examples still come back in under a second.
-Performance improvements left as exercise to the reader.
+because it's just for fun and puzzle examples still come back in seconds.
+Performance improvements left as exercise to the reader (low hanging fruit
+in the puzzle retrieval area, I left everything as linear word lists with
+no preprocessing).
 
 Most other implementations I've seen precompute a lot of puzzles, and if you
 were running a real game server you'd probably want to do the same (serve a
