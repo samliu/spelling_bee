@@ -135,8 +135,8 @@ class SpellingBee(object):
                 elif self.word_lookup[word].issubset(letters) and len(word) > MIN_WORD_LENGTH and len(list(self.word_lookup[word].intersection(central_letter))) == 1:
                     puzzle_words.append(word)
             if len(whole_puzzle_words) > 0:
-                puzzle = {str(list(letters)): (central_letter,
-                                               puzzle_words, whole_puzzle_words)}
+
+                puzzle = SpellingBeePuzzle(central_letter, list(letters), puzzle_words, whole_puzzle_words)
                 if self.min_puzzle_words and len(puzzle_words) < self.min_puzzle_words:
                     continue
                 if self.min_whole_puzzle_words and len(whole_puzzle_words) < self.min_whole_puzzle_words:
@@ -146,6 +146,23 @@ class SpellingBee(object):
         return puzzle
 
 
+class SpellingBeePuzzle(object):
+    def __init__(self, central_letter, letters, puzzle_words, whole_puzzle_words):
+        self.central_letter = central_letter
+        self.letters = letters
+        self.puzzle_words = puzzle_words
+        self.whole_puzzle_words = whole_puzzle_words
+
+    def __str__(self):
+      return """    {1} \n{2}       {3} \n    {0} \n{4}       {5} \n    {6}\n""".format(self.central_letter, *self.letters)
+    def answer(self):
+        answer = 'Valid Words: {0}\n\nWhole Puzzle Words: {1}'.format(", ".join(self.puzzle_words), ", ".join(self.whole_puzzle_words))
+        return answer
+
+
 if __name__ == '__main__':
     bee = SpellingBee(allow_hyphen=True)
-    print bee.generate_puzzle()
+    puzzle = bee.generate_puzzle()
+    print(puzzle)
+    print(puzzle.answer())
+    # print(PuzzleToString(puzzle['central_letter'], puzzle['letters']))
